@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixi Renderer Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        Pixi Renderer Pro
+        <span class="info-icon" tabindex="0">i</span>
+        <span class="tooltip">A blazing-fast, modular PixiJS v8 scene renderer. Export, animate, and handle 1000+ objects at 60 FPS. Try switching scenes or randomizing!</span>
+      </header>
+      <div id="scene-controls">
+        <select id="scene-select">
+          <option value="sample">Sample Scene</option>
+          <option value="random">Random 1000+</option>
+        </select>
+        <button id="randomize-btn">Randomize Scene</button>
+        <button id="export-btn">Export PNG (E)</button>
+        <button id="edge-toggle-btn" aria-pressed="false">Edge Detection</button>
+      </div>
+      <div id="canvas-container"></div>
+      <div id="hud"></div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
