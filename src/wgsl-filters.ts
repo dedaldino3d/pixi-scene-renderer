@@ -1,4 +1,14 @@
-import * as PIXI from 'pixi.js';
+import { Filter, GlProgram } from 'pixi.js';
+
+// Minimal passthrough vertex shader
+const sobelVertex = `
+attribute vec2 aPosition;
+varying vec2 vTextureCoord;
+void main(void) {
+    vTextureCoord = aPosition;
+    gl_Position = vec4((aPosition * 2.0 - 1.0), 0.0, 1.0);
+}
+`;
 
 // GLSL code for Sobel edge detection
 const sobelFragment = `
@@ -34,8 +44,13 @@ void main(void) {
 }
 `;
 
-export function createSobelFilter(width: number, height: number): PIXI.Filter {
-  return new PIXI.Filter(undefined, sobelFragment, {
-    uResolution: [width, height],
+const program = new GlProgram({ vertex: sobelVertex, fragment: sobelFragment });
+
+export function createSobelFilter(width: number, height: number): Filter {
+  return new Filter({
+    glProgram: program,
+    resources: {
+      uResolution: [width, height],
+    },
   });
 } 
