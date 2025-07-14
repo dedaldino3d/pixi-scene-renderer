@@ -48,13 +48,13 @@
 
 ## 🖼️ Screenshots
 
-> ![Pixi Renderer Pro Screenshot](./screenshot.png)
+> ![Pixi Renderer Pro Screenshot](<img width="1846" height="844" alt="Screenshot 2025-07-14 at 8 26 15 PM" src="https://github.com/user-attachments/assets/4c2041b6-3f23-4311-b3f8-60961e90341a" />)
 
 ---
 
 ## 🌐 Live Demo
 
-👉 [Open the live demo](https://your-live-demo-link)
+👉 [Open the live demo]([https://your-live-demo-link](https://pixi-scene-renderer-9v8esi9k1-dedaldino3ds-projects.vercel.app/))
 
 ---
 
