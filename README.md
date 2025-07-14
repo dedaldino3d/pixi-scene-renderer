@@ -48,7 +48,9 @@
 
 ## 🖼️ Screenshots
 
-> ![Pixi Renderer Pro Screenshot](<img width="1846" height="844" alt="Screenshot 2025-07-14 at 8 26 15 PM" src="https://github.com/user-attachments/assets/4c2041b6-3f23-4311-b3f8-60961e90341a" />)
+> ![Pixi Renderer Pro Screenshot]
+
+<img width="1846" height="844" alt="Screenshot 2025-07-14 at 8 26 15 PM" src="https://github.com/user-attachments/assets/4807b4d5-417b-4b61-ada4-628ac37ec8ea" />
 
 ---
 
