@@ -14,7 +14,6 @@ const hud = document.getElementById('hud')!;
 const edgeToggleBtn = document.getElementById('edge-toggle-btn')! as HTMLButtonElement;
 let edgeDetectionEnabled = false;
 
-let currentScene: any = null;
 let perf = { fps: 0, drawCalls: 0 };
 let perfInterval: any = null;
 
@@ -27,7 +26,6 @@ async function loadScene(sceneName: string) {
   if (sceneName === 'random') {
     scene.objects = generateRandomObjects(1000, scene.width, scene.height);
   }
-  currentScene = scene;
   await renderScene(scene, canvasContainer);
   if (edgeDetectionEnabled) {
     applyEdgeDetection(true);
@@ -71,7 +69,7 @@ function exportPNG() {
   const app = getApp();
   if (!app) return;
   const exportCanvas = app.renderer.extract.canvas(app.stage);
-  exportCanvas?.toBlob?.((blob) => {
+  exportCanvas?.toBlob?.((blob: Blob | null) => {
     if (!blob) return;
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
@@ -96,7 +94,7 @@ window.addEventListener('keydown', (e) => {
   }
 });
 
-sceneSelect.addEventListener('change', (e) => {
+sceneSelect.addEventListener('change', () => {
   loadScene(sceneSelect.value);
 });
 
