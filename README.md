@@ -2,6 +2,38 @@
 
 ---
 
+## Alignment with Creative Flow Technical Advisor Role
+
+This project is designed as a sandbox and demonstration environment for the exact requirements of the Creative Flow technical advisor role:
+
+- **Rendering Architecture Review:**
+  - Modular, type-safe codebase with clear separation between scene parsing, rendering, filters, and GPU logic.
+  - Scene descriptions are loaded from JSON and mapped to PixiJS display objects, ready for architectural review and feedback.
+- **Pixi Feasibility (Shaders, Filters, Effects):**
+  - Demonstrates custom shader integration (Sobel edge detection filter) using PixiJS v8’s latest APIs.
+  - Shows how to extend Pixi with custom GPU logic and post-processing.
+- **Handling Complex Scenes:**
+  - Random scene generator creates 1000+ objects to stress-test performance.
+  - Real-time FPS HUD for performance validation.
+  - Code is structured for extensibility (easy to add more shapes, styles, and clipping logic).
+- **GPU Boolean Operations and Clipping:**
+  - Boolean operations (union, intersection, difference) are implemented using Pixi’s masking system.
+  - The code is ready for deeper GPU-side boolean ops (stencil buffer or custom shader), and you can discuss the limitations and next steps for true CSG.
+  - The architecture is ready for a clipping system and advanced GPU logic.
+- **Sandbox for Validation:**
+  - The project is self-contained, with sample and random scenes.
+  - The codebase is easy to fork, run, and modify for experimentation and validation.
+
+**Skills Demonstrated:**
+- Expert graphics engineering and performance-driven design
+- Senior Pixi.js v8 usage and extension
+- GPU filter/shader integration (GLSL, ready for WGSL/WebGPU)
+- Real-time performance metrics and scalable architecture
+
+> This codebase is ready for expert review, architectural feedback, and further GPU-side boolean ops or shader-based enhancements as required by Creative Flow’s rendering pipeline.
+
+---
+
 ## For Reviewers: Architecture & Expert Review
 
 > **This repository is a demonstration and validation sandbox for high-performance, scalable 2D scene rendering using PixiJS v8.**
@@ -24,7 +56,7 @@
 
 **A blazing-fast, modular PixiJS v8 scene renderer. Export, animate, and handle 1000+ objects at 60 FPS.**
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open-green?logo=vercel)](https://your-live-demo-link)
+Live Demo: https://pixi-renderer-pro.vercel.app/
 
 ---
 
@@ -48,15 +80,13 @@
 
 ## 🖼️ Screenshots
 
-> ![Pixi Renderer Pro Screenshot]
-
-<img width="1846" height="844" alt="Screenshot 2025-07-14 at 8 26 15 PM" src="https://github.com/user-attachments/assets/4807b4d5-417b-4b61-ada4-628ac37ec8ea" />
+> ![Pixi Renderer Pro Screenshot](./screenshot.png)
 
 ---
 
 ## 🌐 Live Demo
 
-👉 [Open the live demo]([https://your-live-demo-link](https://pixi-scene-renderer-9v8esi9k1-dedaldino3ds-projects.vercel.app/))
+👉 [Open the live demo](https://your-live-demo-link)
 
 ---
 

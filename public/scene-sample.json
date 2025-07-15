@@ -1,25 +1,22 @@
 {
   "width": 800,
   "height": 600,
+  "operation": "intersect",
   "objects": [
     {
       "type": "rect",
-      "x": 100,
-      "y": 100,
+      "x": 200,
+      "y": 200,
       "width": 200,
       "height": 150,
-      "fill": "#ff0000",
-      "rotation": 0.5,
-      "filters": ["blur"],
-      "blendMode": "multiply"
+      "fill": "#ff0000"
     },
     {
       "type": "circle",
       "cx": 250,
       "cy": 250,
       "radius": 80,
-      "fill": "#00ff00",
-      "clip": true
+      "fill": "#00ff00"
     }
   ]
 } 

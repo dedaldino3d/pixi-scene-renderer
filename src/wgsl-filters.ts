@@ -10,10 +10,10 @@ void main(void) {
 }
 `;
 
-// GLSL code for Sobel edge detection
+// GLSL code for Sobel edge detection (PixiJS v8 compatible)
 const sobelFragment = `
 varying vec2 vTextureCoord;
-uniform sampler2D uSampler;
+uniform sampler2D uTexture;
 uniform vec2 uResolution;
 
 void main(void) {
@@ -32,7 +32,7 @@ void main(void) {
     for (int y = -1; y <= 1; y++) {
         for (int x = -1; x <= 1; x++) {
             vec2 offset = vec2(float(x), float(y)) * texel;
-            vec3 color = texture2D(uSampler, vTextureCoord + offset).rgb;
+            vec3 color = texture(uTexture, vTextureCoord + offset).rgb;
             float intensity = dot(color, vec3(0.299, 0.587, 0.114));
             sumX += intensity * kernelX[i];
             sumY += intensity * kernelY[i];

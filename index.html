@@ -13,9 +13,19 @@
       <header>
         Pixi Renderer Pro
         <span class="info-icon" tabindex="0">i</span>
-        <span class="tooltip">A blazing-fast, modular PixiJS v8 scene renderer. Export, animate, and handle 1000+ objects at 60 FPS. Try switching scenes or randomizing!</span>
+        <span class="tooltip">
+          <b>Pixi Renderer Pro</b> is a high-performance, modular 2D scene renderer built for <b>Creative Flow</b>.<br><br>
+          <b>Purpose:</b> Demonstrate advanced, GPU-accelerated vector rendering, boolean operations, and real-time effects using PixiJS v8.<br><br>
+          <b>Features:</b> Parse and render JSON scenes, support for boolean ops (union/intersect/difference), edge detection, PNG export, and 60 FPS with 1000+ objects.<br><br>
+          <b>For Creative Flow:</b> This project showcases scalable, interactive graphics technology for creative and design applications.
+        </span>
       </header>
       <div id="scene-controls">
+        <select id="operation-select">
+          <option value="union">Union</option>
+          <option value="intersect">Intersect</option>
+          <option value="difference">Difference</option>
+        </select>
         <select id="scene-select">
           <option value="sample">Sample Scene</option>
           <option value="random">Random 1000+</option>

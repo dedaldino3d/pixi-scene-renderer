@@ -12,10 +12,14 @@ const sceneSelect = document.getElementById('scene-select')! as HTMLSelectElemen
 const randomizeBtn = document.getElementById('randomize-btn')! as HTMLButtonElement;
 const hud = document.getElementById('hud')!;
 const edgeToggleBtn = document.getElementById('edge-toggle-btn')! as HTMLButtonElement;
+const operationSelect = document.getElementById('operation-select')! as HTMLSelectElement;
 let edgeDetectionEnabled = false;
 
 let perf = { fps: 0, drawCalls: 0 };
 let perfInterval: any = null;
+
+let currentScene: any = null;
+let currentOperation: 'union' | 'intersect' | 'difference' = 'union';
 
 async function loadScene(sceneName: string) {
   let url = '';
@@ -23,9 +27,24 @@ async function loadScene(sceneName: string) {
   else if (sceneName === 'random') url = '/scene-random.json';
   const res = await fetch(url);
   const scene = await res.json();
+  // If the scene is random, generate 1000+ objects
   if (sceneName === 'random') {
     scene.objects = generateRandomObjects(1000, scene.width, scene.height);
+    // If more than 2 objects, force operation to 'union'
+    if (scene.objects.length > 2) {
+      scene.operation = 'union';
+      operationSelect.value = 'union';
+      currentOperation = 'union';
+    }
   }
+  // If the scene has an operation, sync the dropdown and state (only on initial load)
+  if (scene.operation) {
+    currentOperation = scene.operation;
+    operationSelect.value = scene.operation;
+  } else {
+    scene.operation = currentOperation;
+  }
+  currentScene = scene;
   await renderScene(scene, canvasContainer);
   if (edgeDetectionEnabled) {
     applyEdgeDetection(true);
@@ -104,6 +123,18 @@ randomizeBtn.addEventListener('click', () => {
   } else {
     sceneSelect.value = 'random';
     loadScene('random');
+  }
+});
+
+operationSelect.addEventListener('change', () => {
+  currentOperation = operationSelect.value as any;
+  if (currentScene) {
+    currentScene.operation = currentOperation;
+    renderScene(currentScene, canvasContainer);
+    if (edgeDetectionEnabled) {
+      applyEdgeDetection(true);
+    }
+    startPerfHUD();
   }
 });
 

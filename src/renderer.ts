@@ -1,6 +1,7 @@
 import type { Scene, SceneObject, RectObject, CircleObject } from './types';
 import { hexToPixiColor } from './utils';
 import * as PIXI from 'pixi.js';
+import { renderBooleanOp } from './stencil';
 
 let app: PIXI.Application | null = null;
 
@@ -23,7 +24,13 @@ export async function renderScene(scene: Scene, container: HTMLElement) {
   });
   container.appendChild(app.view as HTMLCanvasElement);
 
-  // Render all objects
+  // Boolean op rendering if specified and exactly two objects
+  if (scene.operation && scene.objects.length === 2) {
+    renderBooleanOp(app, scene.objects[0], scene.objects[1], scene.operation);
+    return;
+  }
+
+  // Render all objects (default)
   for (const obj of scene.objects) {
     const displayObj = createDisplayObject(obj);
     if (displayObj) {

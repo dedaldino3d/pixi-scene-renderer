@@ -22,6 +22,7 @@ export type BlendMode =
 export interface Scene {
   width: number;
   height: number;
+  operation?: 'union' | 'intersect' | 'difference';
   objects: SceneObject[];
 }
 
