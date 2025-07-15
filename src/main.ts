@@ -30,6 +30,7 @@ async function loadScene(sceneName: string) {
   // If the scene is random, generate 1000+ objects
   if (sceneName === 'random') {
     scene.objects = generateRandomObjects(1000, scene.width, scene.height);
+    console.log('Randomizing', scene.objects.length);
     // If more than 2 objects, force operation to 'union'
     if (scene.objects.length > 2) {
       scene.operation = 'union';
